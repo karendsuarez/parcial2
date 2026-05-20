@@ -11,9 +11,6 @@ std::string Persona::getNombre() const {
     return nombre; 
 }
 
-int Persona::getEdad() const { 
-    return edad; 
-}
 
 std::string Persona::getDocumento() const { 
     return documento; 
