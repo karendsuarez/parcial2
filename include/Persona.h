@@ -3,6 +3,7 @@
 
 class Persona {
 protected:
+    //ATRIBUTOS
     std::string nombre;
     int documento; 
     int edad;

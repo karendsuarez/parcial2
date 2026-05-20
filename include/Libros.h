@@ -1,24 +1,22 @@
 #pragma once
 #include <string>
-#include <iostream>
 
 class Libro {
 private:
-    //ATRIBUTOS 
+    //ATRIBUTOS
     std::string titulo;
     std::string autor;
-    int codeLibro;
-    bool disponible;
+    int codigoLibro;      // Restriccion de solo numeros
+    bool disponible;      // Control de disponibilidad
+
 public:
-    
-    Libro(std::string _titulo, std::string _autor, int _codeLibro);
+    Libro(std::string _titulo, std::string _autor, int _codigoLibro);
 
-    int getCodeLibro() const;
     std::string getTitulo() const;
-    bool getDisponible() const;
+    int getCodigoLibro() const;
+    bool isDisponible() const;
 
-    void PrestarLibro();
-    void DevolverLibro();
-    void MostrarInfo ();
-
+    bool prestarLibro();  //Cambia estado a prestado si aplica
+    bool devolverLibro(); //Cambia estado a disponible si aplica
+    void mostrarInformacion();
 };

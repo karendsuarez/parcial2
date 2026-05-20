@@ -1,21 +1,43 @@
-#include "Libro.h"
+#include "../include/Libros.h"
+#include <iostream>
 
-Libro::Libro(std::string _titulo, std::string _autor, std::string _codigoLibro) {
+Libro::Libro(std::string _titulo, std::string _autor, int _codigoLibro) {
     titulo = _titulo;
     autor = _autor;
     codigoLibro = _codigoLibro;
     disponible = true;
 }
 
-std::string Libro::getCodigoLibro() const { return codigoLibro; }
-std::string Libro::getTitulo() const { return titulo; }
-bool Libro::getDisponible() const { return disponible; }
+int Libro::getCodigoLibro() const {
+    return codigoLibro;
+}
 
-void Libro::prestarLibro() { disponible = false; }
-void Libro::devolverLibro() { disponible = true; }
+bool Libro::isDisponible() const {
+    return disponible;
+}
+
+// Lógica de condicionamiento para prestar un libro
+bool Libro::prestarLibro() {
+    if (disponible) { 
+        disponible = false; 
+        return true;        // Préstamo exitoso
+    }
+    return false; 
+}
+
+// Lógica de condicionamiento para devolver un libro
+bool Libro::devolverLibro() {
+    if (!disponible) {
+        disponible = true; 
+        return true;       
+    }
+    return false;
+}
 
 void Libro::mostrarInformacion() {
-    std::cout << "Título: " << titulo << " | Autor: " << autor 
+    std::cout << "Título: " << titulo 
+              << " | Autor: " << autor 
               << " | Código Libro: " << codigoLibro 
-              << " | Estado: " << (disponible ? "Disponible" : "Prestado") << std::endl;
+              << " | Estado: " << (disponible ? "Disponible" : "Prestado") 
+              << std::endl;
 }

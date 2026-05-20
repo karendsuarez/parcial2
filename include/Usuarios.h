@@ -1,25 +1,25 @@
 #pragma once
 #include "Persona.h"
-#include <string>
 
-class Usuaio : public Persona {
+class Usuario : public Persona {
 private:
     //ATRIBUTOS
-    int CodeUsuario;
-    int CantLibrosPrestados;
+    int codigoUsuario;             
+    int cantidadLibrosPrestados;   //atributo requerido
 
-public: 
-    int Usuario(std::string _nombre, std::string _documento, int _edad, std::string _codeUsuario);
-
-    std::string getCodigoUsuario() const;
-
+public:
+   
+    Usuario(std::string _nombre, int _documento, int _edad, int _codigoUsuario);
+    
+    // Getters útiles
+    int getCodigoUsuario() const;
     int getCantidadLibrosPrestados() const;
+    
+    // Auxiliares para la lógica de préstamos
+    void incrementarLibrosPrestados();
+    void decrementarLibrosPrestados();
 
-    void incrementarLibros();
-
-    void decrementarLibros();
-
-    void MostrarRol() override;
-
-    void MostararInfo() override;
+    // Métodos obligatorios a sobrescribir
+    void mostrarRol() override;
+    void mostrarInformacion() override;
 };

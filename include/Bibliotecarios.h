@@ -4,16 +4,13 @@
 class Bibliotecario : public Persona {
 private:
     //ATRIBUTOS
-    int CodeEmpleado;
-    double Salario;
+    int codeEmpleado;
+    int salario;
 
-public: 
-
-    Bibliotecario(std::string _nombre, std::string _documento, int _edad, std::string _codigoEmpleado, double _salario);
-
-    std::string getCodigoEmpleado() const;
-
-    void MostrarRol() override;
-
-    void MostararInfo() override;
+public:
+   
+    Bibliotecario(std::string _nombre, int _documento, int _edad, int _codeEmpleado, int _salario);
+    int getCodeEmpleado() const;
+    void mostrarRol() override;
+    void mostrarInformacion() override;
 };
