@@ -1,13 +1,19 @@
 #pragma once
 #include "Persona.h"
 
-class Bibliotecario {
+class Bibliotecario : public Persona {
+private:
     //ATRIBUTOS
     int CodeEmpleado;
-    int Salario;
+    double Salario;
 
 public: 
-    void MostrarRol();
 
-    void MostararInfo();
+    Bibliotecario(std::string _nombre, std::string _documento, int _edad, std::string _codigoEmpleado, double _salario);
+
+    std::string getCodigoEmpleado() const;
+
+    void MostrarRol() override;
+
+    void MostararInfo() override;
 };
