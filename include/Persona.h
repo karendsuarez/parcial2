@@ -1,23 +1,19 @@
 #pragma once
 #include <string>
-#include <iostream>
 
-class Persona{
+class Persona {
 protected:
     std::string nombre;
-    int documento;
+    int documento; 
     int edad;
 
 public:
-
-    Persona(std::string _nombre, std::string _documento, int _edad);
-    virtual ~Persona() = default; //Destructor virtual para asegurar una correcta liberación de memoria
+    Persona(std::string _nombre, int _documento, int _edad);
+    virtual ~Persona() = default; 
 
     std::string getNombre() const;
-    std::string getDocumento() const;
+    int getDocumento() const; 
 
-    virtual void MostrarRol() = 0;
-
-    virtual void MostararInfo();
-    };
-
+    virtual void mostrarRol() = 0;
+    virtual void mostrarInformacion();       
+};
