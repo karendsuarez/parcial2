@@ -26,27 +26,47 @@ int main() {
 
         std::cout << "Ingrese una opcion: ";
         std::cin >> opcion;
+        std::cin.ignore();
 
         switch (opcion) {
             case 1:
+                std::string nombre, documento, edadStr, code;
+                int edad;
+
                 std::cout << " Ingrese el nombre del usuario: ";
-                 std::cout << " Ingrese documento del usuario: ";
+                std::getline(std::cin, nombre);
+                std::cout << " Ingrese documento del usuario: ";
+                std::getline(std::cin, documento);
                 std::cout << " Ingrese edad del usuario: ";
+                std::getline(std::cin, code);
+
                 break;
             case 2:
                 std::cout << " Ingrese el nombre del bibliotecario: ";
+                std::getline(std::cin, nombre);
                 std::cout << " Ingrese documento del bibliotecario: ";
+                std::getline(std::cin, documento);
                 std::cout << " Ingrese edad del bibliotecario: ";
+                std::getline(std::cin, edadStr);
+
+
+
                 break;
             case 3:
                 std::cout << " Ingrese el titulo del libro: ";
+                std::getline(std::cin, titulo);
                 std::cout << " Ingrese el autor del libro: ";
+                std::getline(std::cin, autor);
+                std::cout << "Ingrese el código del libro: ";
+                std::getline(std::cin, codigoLibro);
+
                 break;
             case 4:
-                // Lógica para prestar libro
+                
+
                 break;
             case 5:
-                // Lógica para devolver libro
+              
                 break;
             case 6:
                 // Lógica para mostrar usuarios
