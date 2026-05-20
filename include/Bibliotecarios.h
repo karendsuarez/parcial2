@@ -4,10 +4,9 @@
 class Bibliotecario {
     //ATRIBUTOS
     int CodeEmpleado;
-    double Salario;
+    int Salario;
 
-public:
-
+public: 
     void MostrarRol();
 
     void MostararInfo();
