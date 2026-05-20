@@ -40,6 +40,24 @@ int main() {
                 std::cout << " Ingrese edad del usuario: ";
                 std::getline(std::cin, code);
 
+                if (!esNumerico(edadStr) || std::stoi(edadStr) <= 0) {
+                    std::cout << "Error: La edad debe ser mayor a 0"<< std::endl;
+                    break;
+                }
+                edad = std::stoi(edadStr);
+
+                std::cout << "Ingrese código del usuario: ";
+                std::getline(std::cin, codigo);
+                if (!esNumerico(codigo)) {
+                    std::cout << "Error: El codigo no debe llevar caracteres de texto."<< std::endl;
+                    break;
+                }
+
+                listaUsuarios.push_back(Usuario(nombre, documento, edad, codigo));
+                std::cout << "¡Usuario registrado con exito!"<< std::endl;
+                break;
+            }
+
                 break;
             case 2:
                 std::cout << " Ingrese el nombre del bibliotecario: ";
@@ -49,7 +67,25 @@ int main() {
                 std::cout << " Ingrese edad del bibliotecario: ";
                 std::getline(std::cin, edadStr);
 
+                if (!esNumerico(edadStr) || std::stoi(edadStr) <= 0) {
+                    std::cout << "Error: La edad debe ser mayor a 0"<<std::endl;
+                    break;
+                }
+                edad = std::stoi(edadStr);
 
+                std::cout << "Ingrese codigo de empleado: ";
+                std::getline(std::cin, codigo);
+                if (!esNumerico(codigo)) {
+                    std::cout << "Error: El codigo no debe llevar caracteres de texto."<<std::endl;
+                    break;
+                }
+
+                std::cout << "Ingrese salario del bibliotecario: ";
+                std::cin >> salario;
+
+                listaBibliotecarios.push_back(Bibliotecario(nombre, documento, edad, codigo, salario));
+                std::cout << "Bibliotecario registrado con exito"<<std::endl;
+                break;
 
                 break;
             case 3:
@@ -61,6 +97,15 @@ int main() {
                 std::getline(std::cin, autor);
                 std::cout << "Ingrese el código del libro: ";
                 std::getline(std::cin, codigoLibro);
+
+                if (!esNumerico(codigoLibro)) {
+                    std::cout << "Error: El codigoLibro no debe llevar caracteres de texto" <<std::endl;
+                    break;
+                }
+
+                listaLibros.push_back(Libro(titulo, autor, codigoLibro));
+                std::cout << "Libro registrado con exito!\n";
+                
 
                 break;
             case 4:
@@ -77,7 +122,7 @@ int main() {
                             listaLibros[i].prestarLibro();
                             std::cout << "El libro '" << listaLibros[i].getTitulo() << "' ha sido prestado con éxito.\n";
                         } else {
-                            std::cout << "Error: El libro NO está disponible en este momento.\n";
+                           std::cout << "Error: El libro NO está disponible en este momento.\n";
                         }
                         break;
                     }
@@ -106,10 +151,19 @@ int main() {
                 if (!encontrado) std::cout << "Libro no encontrado.\n";
                 break;
             case 6:
-                // Lógica para mostrar usuarios
+                std::cout << "--- LISTA DE USUARIOS ---" << std::endl;
+                if (listaUsuarios.empty()) std::cout << "No hay usuarios registrados." << std::endl;
+                for (size_t i = 0; i < listaUsuarios.size(); i++) {
+                listaUsuarios[i].mostrarRol();
+                listaUsuarios[i].mostrarInformacion();
+}
                 break;
             case 7:
-                // Lógica para mostrar libros
+                std::cout << "--- LISTA DE LIBROS ---" << std::endl;
+                if (listaLibros.empty()) std::cout << "No hay libros registrados." << std::endl;
+                for (size_t i = 0; i < listaLibros.size(); i++) {
+                listaLibros[i].mostrarInformacion();
+}
                 break;
             case 8:
                 std::cout << "Saliendo del sistema..." << std::endl;
