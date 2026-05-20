@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-class libros {
+class Libro {
 private:
     //ATRIBUTOS 
     std::string titulo;
@@ -11,8 +11,9 @@ private:
     bool disponible;
 public:
     
-    Libro(std::string _titulo, std::string _autor);
+    Libro(std::string _titulo, std::string _autor, int _codeLibro);
 
+    int getCodeLibro() const;
     std::string getTitulo() const;
     bool getDisponible() const;
 

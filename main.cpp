@@ -53,6 +53,8 @@ int main() {
 
                 break;
             case 3:
+                std::string titulo, autor, codeLibro;
+
                 std::cout << " Ingrese el titulo del libro: ";
                 std::getline(std::cin, titulo);
                 std::cout << " Ingrese el autor del libro: ";
@@ -62,11 +64,46 @@ int main() {
 
                 break;
             case 4:
-                
+                std::string codeLibro; 
+                std::cout << "Ingrese el código del libro a prestar: ";
+                std::getline(std::cin, codeLibro);
+
+                bool encontrado = false;
+                for (size_t i = 0; i < listaLibros.size(); i++) {
+                    //compara el codigo del libro guardado con lo que escribio el usuario
+                    if (listaLibros[i].getCodeLibro() == codeLibro) { 
+                        encontrado = true;
+                        if (listaLibros[i].getDisponible()) {
+                            listaLibros[i].prestarLibro();
+                            std::cout << "El libro '" << listaLibros[i].getTitulo() << "' ha sido prestado con éxito.\n";
+                        } else {
+                            std::cout << "Error: El libro NO está disponible en este momento.\n";
+                        }
+                        break;
+                    }
+                }
+                if (!encontrado) std::cout << "Libro no encontrado.\n";
 
                 break;
             case 5:
-              
+              std::string codeLibro; // <-- Variable local para buscar
+                std::cout << "Ingrese el código del libro a devolver: ";
+                std::getline(std::cin, codeLibro);
+
+                bool encontrado = false;
+                for (size_t i = 0; i < listaLibros.size(); i++) {
+                    if (listaLibros[i].getCodeLibro() == codeLibro) { 
+                        encontrado = true;
+                        if (!listaLibros[i].getDisponible()) {
+                            listaLibros[i].devolverLibro();
+                            std::cout << "El libro '" << listaLibros[i].getTitulo() << "' ha sido devuelto.\n";
+                        } else {
+                            std::cout << "El libro ya se encontraba disponible.\n";
+                        }
+                        break;
+                    }
+                }
+                if (!encontrado) std::cout << "Libro no encontrado.\n";
                 break;
             case 6:
                 // Lógica para mostrar usuarios
